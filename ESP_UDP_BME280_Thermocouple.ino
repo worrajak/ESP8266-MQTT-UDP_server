@@ -45,8 +45,8 @@ void postTransmission()
 ESP8266WiFiMulti wifiMulti;
 WiFiUDP Udp;
 
-IPAddress destinationIP(35,201,5,171);  // Address of target machine
-unsigned int destinationPort = 5051;      // Port to send to
+IPAddress destinationIP(35,xxx,xxx,xxx);  // Address of target machine
+unsigned int destinationPort = xxxx;      // Port to send to
 
 #define MY_DEBUG
 #define USE_OLED
@@ -62,8 +62,8 @@ char buf[20];
 char str[20];
 
 // Config WiFi
-#define WIFI_SSID     "TP-Link_FB54"     //"HUAWEIJAK"       "TP-Link_FB54"      "TP-LINK"   "HUAWEIP20"
-#define WIFI_PASSWORD "80026983"   // "1234567890"     "80026983"  "123456789" "1234567890"
+#define WIFI_SSID     "TP-Link"     
+#define WIFI_PASSWORD "00000000"   
 
 #ifndef min
 #define min(a,b) ((a)<(b)?(a):(b))
