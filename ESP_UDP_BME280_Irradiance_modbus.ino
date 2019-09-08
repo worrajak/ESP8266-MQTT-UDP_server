@@ -36,8 +36,8 @@ void postTransmission()
 ESP8266WiFiMulti wifiMulti;
 WiFiUDP Udp;
 
-IPAddress destinationIP(35,201,5,171);  // Address of target machine
-unsigned int destinationPort = 5050;      // Port to send to
+IPAddress destinationIP(35,xxx,xxx,xxx);  // Address of target machine
+unsigned int destinationPort = xxxx;      // Port to send to
 
 //#define MY_DEBUG
 #define USE_OLED
@@ -53,8 +53,8 @@ char buf[20];
 char str[20];
 
 // Config WiFi
-#define WIFI_SSID     "TP-Link_FB54"     //"HUAWEIJAK"       "TP-Link_FB54"      "TP-LINK"   "HUAWEIP20"
-#define WIFI_PASSWORD "80026983"   // "1234567890"     "80026983"  "123456789" "1234567890"
+#define WIFI_SSID     "TP-Link"     
+#define WIFI_PASSWORD "00000000"   
 
 #ifndef min
 #define min(a,b) ((a)<(b)?(a):(b))
@@ -76,8 +76,6 @@ void setup() {
   
   mySerial.begin(9600);
   node.begin(1, mySerial);
-  //node.preTransmission(preTransmission);
-  //node.postTransmission(postTransmission);
   delay(50);
  
   Serial.begin(9600);
@@ -99,30 +97,13 @@ void setup() {
 WiFiManager wifiManager;
 
 wifiManager.autoConnect("AutoConnectAP");
-/*
-  WiFi.begin(WIFI_SSID, WIFI_PASSWORD);
 
-  while (WiFi.status() != WL_CONNECTED) {
-    Serial.print(".");
-    delay(500);
-  }
-#ifdef MY_DEBUG     
-  Serial.println(WiFi.localIP());
-#endif
-
-#ifdef USE_OLED  
-
-#endif
-*/
-  
   configTime(timezone * 3600, dst * 0, "pool.ntp.org", "time.nist.gov");
   
   while (!time(nullptr)) {
     delay(1000);
   }
   
-    //Serial.println(getTime());
-
 #ifdef USE_OLED    
   display.begin();
   display.print("Environment Log.");
@@ -156,13 +137,6 @@ void loop() {
   long now_t = millis();
   long x;  
   unsigned long DataHex; 
-  
-  //int sensorValue = analogRead(A0);
-  //delay(100);
-  //Serial.print("ADC:");Serial.println(sensorValue);
-  //float volts = 3.30*(float)sensorValue/1023.00;
-  //delay(100);
-  //float get_Vcc = ESP.getVcc();
 
 #ifdef USE_BME280    
   Temperature = bme.readTemperature();
@@ -187,7 +161,6 @@ void loop() {
 #endif          
 
 #ifdef MY_DEBUG   
-//  Serial.print("ADC:");Serial.print(sensorValue);
   Serial.print(" Temp:");Serial.print(Temperature,1);
   Serial.print(" Humid:");Serial.print(Humidity,0);  
   Serial.print(" ADC1:");Serial.println(ADC1,4);
