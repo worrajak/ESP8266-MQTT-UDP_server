@@ -12,8 +12,8 @@
 ESP8266WiFiMulti wifiMulti;
 WiFiUDP Udp;
 
-IPAddress destinationIP(35,201,5,100);  // Address of target machine
-unsigned int destinationPort = 2222;      // Port to send to
+IPAddress destinationIP(35,xxx,xxx,xxx);  // Address of target machine
+unsigned int destinationPort = xxxx;      // Port to send to
 
 #define MY_DEBUG
 #define USE_OLED
